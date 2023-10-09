@@ -1,0 +1,87 @@
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Exercício 1</title>
+</head>
+
+<body>
+    <h1>Situação do Aluno:</h1>
+    <p> Aluno: <span id="aluno"></span></p>
+    <p> Nota 1: <span id="n1"></span></p>
+    <p> Nota 2: <span id="n2"></span></p>
+    <p> Nota 3: <span id="n3"></span></p>
+    <p> Nota em ordem decrescente: <span id="ndecre"></span></p>
+    <p> Média: <span id="media"></span></p>
+    <p> Situação: <span id="situacao"></span></p>
+
+    <script>
+        let aluno = prompt("Digite o nome do aluno.");
+        let n1 = Number(prompt("Digite a note 1."));
+        let n2 = Number(prompt("Digite a note 2."));
+        let n3 = Number(prompt("Digite a note 3."));
+        let na = 0;
+        let nb = 0;
+        let nc = 0;
+
+        let media = ((n1 + n2 + n3) / 3);
+        let situacao;
+
+        if (media >= 6) {
+            situacao =  "Aprovado";
+        } else {
+            situacao =  "Reprovado";
+        }
+
+        if (n1 >= n2 && n1 >= n3) {
+            na = n1;
+            if (n2 > n3) {
+                nb = n2;
+                nc = n3;
+            } else {
+                nb = n3;
+                nc = n2;
+            }
+        }
+        else if (n2 >= n1 && n2 >= n3) {
+            na = n2;
+            if (n1 > n3) {
+                nb = n1;
+                nc = n3;
+            } else {
+                nb = n3;
+                nc = n1;
+            }
+        }
+        else if (n3 >= n1 && n3 >= n2) {
+            na = n3;
+            if (n2 > n1) {
+                nb = n2;
+                nc = n1;
+            } else {
+                nb = n1;
+                nc = n2;
+            }
+        }else if (n1 == n2 && n1 == n3) {
+            na = n1;
+            nb = n2;
+            nc = n3;
+        } else {
+            na = 0;
+            nb = 0;
+            nc = 0;
+        }
+
+        document.getElementById("aluno").innerHTML = aluno;
+        document.getElementById("n1").innerHTML = n1;
+        document.getElementById("n2").innerHTML = n2;
+        document.getElementById("n3").innerHTML = n3;
+        document.getElementById("media").innerHTML = media.toFixed(2);
+        document.getElementById("situacao").innerHTML = situacao;
+        document.getElementById("ndecre").innerHTML = na + " , " + nb + " , " + nc;
+    </script>
+</body>
+
+</html>

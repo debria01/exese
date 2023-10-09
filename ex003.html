@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast Food Order</title>
+</head>
+<body>
+    <h2>Menu:</h2>
+    <p>1. Big super sanduba, 2 hambúrgueres, queijo, batata frita e refrigerante - R$ 5.00</p>
+    <p>2. Quase super sanduba, 1 hambúrguer, batata frita e refrigerante - R$ 3.00</p>
+    <p>3. Miradus sanduba, 1 Misto Quente e refrigerante - R$ 1.50</p>
+
+    <form id="orderForm" onsubmit="processarPedido(); return false;">
+        <label for="option">Escolha uma opção (1, 2 ou 3):</label>
+        <input type="number" id="option" min="1" max="3" required>
+        <br><br>
+
+        <button type="submit">Processar Pedido</button>
+    </form>
+
+    <!-- Adicionei esses elementos para exibir o resultado -->
+    <p id="resultado"></p>
+
+    <script>
+        function processarPedido() {
+            let option = parseInt(document.getElementById("option").value);
+            let preco;
+            let escolha;
+
+            switch (option) {
+                case 1:
+                    preco = 5.00;
+                    escolha = "1";
+                    break;
+                case 2:
+                    preco = 3.00;
+                    escolha = "2";
+                    break;
+                case 3:
+                    preco = 1.50;
+                    escolha = "3";
+                    break;
+                default:
+                    alert("Opção inválida. Por favor, escolha uma opção válida (1, 2 ou 3).");
+                    return;
+            }
+
+            // Exibir resultado no HTML
+            document.getElementById("resultado").innerHTML = "Opção escolhida: " + escolha + "<br>Preço total: R$ " + preco.toFixed(2);
+        }
+    </script>
+</body>
+</html>

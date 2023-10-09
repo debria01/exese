@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formatador de Data</title>
+</head>
+<body>
+    <form id="dataForm">
+        <label for="inputData">Digite a data (dd/mm/yyyy):</label>
+        <input type="text" id="inputData" required>
+        <br><br>
+
+        <button type="button" onclick="formatarData()">Formatar Data</button>
+    </form>
+
+    <!-- Adicionados esses elementos para exibir os resultados -->
+    <p id="resultadoDia"></p>
+    <p id="resultadoMes"></p>
+    <p id="resultadoAno"></p>
+
+    <script>
+        function formatarData() {
+            // Obtendo a data do formulário
+            let inputData = document.getElementById("inputData").value;
+
+            // Separando a data nos componentes (dia, mês, ano)
+            let partes = inputData.split("/");
+            let dia = partes[0];
+            let mes = partes[1];
+            let ano = partes[2];
+
+            // Obtendo o nome do mês com base no número do mês usando switch case
+            let nomeMes;
+            switch (parseInt(mes)) {
+                case 1:
+                    nomeMes = "janeiro";
+                    break;
+                case 2:
+                    nomeMes = "fevereiro";
+                    break;
+                case 3:
+                    nomeMes = "março";
+                    break;
+                case 4:
+                    nomeMes = "abril";
+                    break;
+                case 5:
+                    nomeMes = "maio";
+                    break;
+                case 6:
+                    nomeMes = "junho";
+                    break;
+                case 7:
+                    nomeMes = "julho";
+                    break;
+                case 8:
+                    nomeMes = "agosto";
+                    break;
+                case 9:
+                    nomeMes = "setembro";
+                    break;
+                case 10:
+                    nomeMes = "outubro";
+                    break;
+                case 11:
+                    nomeMes = "novembro";
+                    break;
+                case 12:
+                    nomeMes = "dezembro";
+                    break;
+                default:
+                    alert("Mês inválido");
+                    return;
+            }
+
+            // Exibindo os resultados no HTML
+            document.getElementById("resultadoDia").innerHTML = "Dia: " + dia;
+            document.getElementById("resultadoMes").innerHTML = "Mês: " + nomeMes;
+            document.getElementById("resultadoAno").innerHTML = "Ano: " + ano;
+        }
+    </script>
+</body>
+</html>

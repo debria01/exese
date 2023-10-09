@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function main() {
+      var nome1, nome2, nome3;
+
+      window.alert("digite o Nome1");
+      nome1 = window.prompt('Enter a value for nome1');
+      window.alert("digite o Nome2");
+      nome2 = window.prompt('Enter a value for nome2');
+      window.alert("digite o Nome3");
+      nome3 = window.prompt('Enter a value for nome3');
+      
+      var peso1, peso2, peso3;
+
+      window.alert("Digite o peso1");
+      peso1 = Number(window.prompt('Enter a value for peso1'));
+      window.alert("Digite o peso2");
+      peso2 = Number(window.prompt('Enter a value for peso2'));
+      window.alert("Digite o peso3");
+      peso3 = Number(window.prompt('Enter a value for peso3'));
+      
+      var maior, menor;
+
+      maior = peso1;
+      menor = peso1;
+      if (peso2 > maior) {
+        maior = peso2;
+      }
+      if (peso3 > maior) {
+        maior = peso3;
+      }
+      if (peso2 < menor) {
+        menor = peso2;
+      }
+      if (peso3 < menor) {
+        menor = peso3;
+      }
+      if (maior == menor) {
+        window.alert("Todos numeros digitados são iguais");
+      } else {
+        window.alert("O maior valor é:" + maior);
+        window.alert("O menor valor é:" + menor);
+      }
+
+      // Adicionei esta parte para exibir os resultados no HTML
+      document.getElementById("nome1").innerHTML = nome1;
+      document.getElementById("nome2").innerHTML = nome2;
+      document.getElementById("nome3").innerHTML = nome3;
+      document.getElementById("peso1").innerHTML = peso1;
+      document.getElementById("peso2").innerHTML = peso2;
+      document.getElementById("peso3").innerHTML = peso3;
+      document.getElementById("maiorPeso").innerHTML = maior;
+      document.getElementById("ndecre").innerHTML = [peso1, peso2, peso3].join(" , ");
+    }
+
+    // Chame a função main quando a página for carregada
+    window.onload = main;
+  </script>
+  
+  <!-- Adicionei esses elementos para exibir os resultados -->
+  <p id="nome1"></p>
+  <p id="nome2"></p>
+  <p id="nome3"></p>
+  <p id="peso1"></p>
+  <p id="peso2"></p>
+  <p id="peso3"></p>
+  <p id="maiorPeso"></p>
+  <p id="ndecre"></p>
+
+</body>
+</html>
